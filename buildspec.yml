@@ -1,0 +1,17 @@
+version: 0.2
+
+phases:
+  install:
+    commands:
+      - make install
+      - make install-test
+  build:
+    commands:
+      - make lint-check
+      - make test
+
+artifacts:
+  files:
+    - lambda_function.py
+    - requirements.txt
+  name: lambda-rekognition-s3-$(date +%Y-%m-%d)
